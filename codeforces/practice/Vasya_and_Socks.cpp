@@ -3,15 +3,8 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-	int n,m,res,p;
+	int n,m;
 	cin>>n>>m;
-	res = n + n/m;
-	while((res-n)/m > 0)
-	{
-		p=res;
-		res+= (res-n)/m;
-		n=p;
-	}
-	cout<<res;
+	cout<<n+int(n-1)/int(m-1);
 	return 0;
 }
