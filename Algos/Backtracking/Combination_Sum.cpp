@@ -1,10 +1,10 @@
-bool solve(vector<int> A, vector<int> &temp, int B, int sum, vector<vector<int> > &ans) {
+bool solve(vector<int> A, vector<int> &temp, int B, int sum, vector<vector<int> > &ans, int curr) {
     if(sum==B) return true;
     if(sum>B) return false;
-    for(int i=0;i<A.size();i++) {
+    for(int i=curr;i<A.size();i++) {
         temp.push_back(A[i]);
         sum+=A[i];
-        if(solve(A, temp, B, sum, ans))
+        if(solve(A, temp, B, sum, ans, i))
             if(sum==B)
                 ans.push_back(temp);
         sum-=A[i];
@@ -14,7 +14,7 @@ bool solve(vector<int> A, vector<int> &temp, int B, int sum, vector<vector<int> 
 vector<vector<int> > Solution::combinationSum(vector<int> &A, int B) {
     vector<vector<int> > ans;
     vector<int> temp;
-    solve(A, temp, B, 0, ans);
+    solve(A, temp, B, 0, ans, 0);
     for(int i=0;i<ans.size();i++)
         sort(ans[i].begin(),ans[i].end());
     sort(ans.begin(),ans.end());
