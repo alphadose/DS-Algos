@@ -1,47 +1,29 @@
-/**
- * Definition for binary tree
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
- 
-TreeNode *current=NULL;
-void threadedBST(TreeNode *A,TreeNode **previous){
-    if(!A)
-        return;
-    threadedBST(A->left,previous);
-    if(*previous)
-        (*previous)->right=A;
-    *previous=A;
-    threadedBST(A->right,previous);
-    
-}
-BSTIterator::BSTIterator(TreeNode *root) {
-    current=root;
-    while(current && current->left) current=current->left;
-    TreeNode *B=NULL;
-    threadedBST(root,&B);
-}
+class BSTIterator {
+    public:
+        stack<TreeNode *> myStack;
 
-/** @return whether we have a next smallest number */
-bool BSTIterator::hasNext() {
-    if(current)
-        return 1;
-    return 0;
-}
+        BSTIterator(TreeNode *root) {
+            pushAll(root);
+        }
 
-/** @return the next smallest number */
-int BSTIterator::next() {
-    int a=current->val;
-    current=current->right;
-    return a;
-}
+        /** @return whether we have a next smallest number */
+        bool hasNext() {
+            return !myStack.empty();
+        }
 
-/**
- * Your BSTIterator will be called like this:
- * BSTIterator i = BSTIterator(root);
- * while (i.hasNext()) cout << i.next();
- */
+        /** @return the next smallest number */
+        int next() {
+            TreeNode *tmpNode = myStack.top();
+            myStack.pop();
+            pushAll(tmpNode->right);
+            return tmpNode->val;
+        }
+
+    private:
+        void pushAll(TreeNode *node) {
+            while (node != NULL) {
+                myStack.push(node);
+                node = node->left;
+            }
+        }
+};
