@@ -7,20 +7,16 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-TreeNode* invert(TreeNode* A, TreeNode* ans) {
-    if(A==NULL) return ans;
-    if(A->left!=NULL) {
-        ans->right = new TreeNode(A->left->val);
-        ans->right = invert(A->left, ans->right);
-    }
-    if(A->right!=NULL) {
-        ans->left = new TreeNode(A->right->val);
-        ans->left = invert(A->right, ans->left);
-    }
-    return ans;
+void invert(TreeNode* A) {
+    if(A==NULL) return;
+    
+    TreeNode* temp = A->left;
+    A->left = A->right;
+    A->right = temp;
+    invert(A->left);
+    invert(A->right);
 }
 TreeNode* Solution::invertTree(TreeNode* A) {
-    TreeNode* ans = new TreeNode(A->val);
-    invert(A, ans);
-    return ans;
+    invert(A);
+    return A;
 }
