@@ -62,3 +62,26 @@ int query(int node, int start, int end, int l, int r)
     return (p1 + p2);
 }
 
+void updateRange(int node, int start, int end, int l, int r, int val)
+{
+    // out of range
+    if (start > end or start > r or end < l)
+        return;
+
+    // Current node is a leaf node
+    if (start == end)
+    {
+        // Add the difference to current node
+        tree[node] += val;
+        return;
+    }
+
+    // If not a leaf node, recur for children.
+    int mid = (start + end) / 2;
+    updateRange(node*2, start, mid, l, r, val);
+    updateRange(node*2 + 1, mid + 1, end, l, r, val);
+
+    // Use the result of children calls to update this node
+    tree[node] = tree[node*2] + tree[node*2+1];
+}
+
