@@ -1,6 +1,4 @@
-int countSubArrayProductLessThanK(const vector<int>& a, 
-                                           long long k)
-{
+int countSubArrayProductLessThanK(const vector<int>& a, long long k)
     const int n = a.size();    
     long long p = 1;
     int res = 0;
