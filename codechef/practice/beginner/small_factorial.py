@@ -1,7 +1,7 @@
 from math import factorial
 
-t=int(input())
-while(t>0):
-	n=int(input())
-	print factorial(n)
+t = int(raw_input())
+while t > 0 :
+	num = int(raw_input())
+	print factorial(num)
 	t-=1
