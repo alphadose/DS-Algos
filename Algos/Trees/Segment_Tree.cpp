@@ -142,3 +142,5 @@ int queryRange(int node, int start, int end, int l, int r)
     int p2 = queryRange(node*2 + 1, mid + 1, end, l, r); // Query right child
     return (p1 + p2);
 }
+
+// Length of segment tree and lazy tree = 4 * length of array
