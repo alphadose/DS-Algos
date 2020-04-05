@@ -7,6 +7,15 @@ struct kekw {
   kekw(int m): cook(m) {}
 };
 
+int b();
+
+int a() {
+  return b();
+}
+
+int b() {
+  return 1;
+}
 
 template<typename A=int, typename B=string>
 struct xd {
@@ -44,10 +53,11 @@ ostream& operator<<(ostream &out, xd<> &f) {
 int main() {
 
     // priority_queue<kekw, vector<kekw>, xd> pq;
-
+    // function<int(double)> it = [](double a) -> int {
+    //   return a;
+    // };
     xd<kekw>* n = new xd<kekw>(2, new kekw(69));
-
-    cout<<n->operator->()->cook;
+    // cout<<n->operator->()->cook;
 
     // auto p = new xd(0);
     // p = f;
@@ -110,4 +120,39 @@ int main() {
   // }
   // a->meow = 69;
   // cout<<a->meow;
+  // map<int, int> kekw = {
+  //   {1, 2},
+  //   {3, 4}
+  // };
+  // cout<<sizeof(kekw)<<endl;
+  // int a[] = {1, 2, 3, 4};
+  // cout<<sizeof(a)/sizeof(int)<<endl;
+  // set<int> kekw = {3, 4};
+  // for(auto it = kekw.begin(); it != kekw.end(); ++it) it->first--;
+  // // for(auto& it : kekw) it.second--;
+  // for(auto it : kekw) cout<<it.first<<endl;
+
+  // list<int> arr = {1,2,3,4};
+  // auto it = ++arr.rbegin();
+  // // cout<<*it<<endl;
+  // arr.push_back(5);
+  // cout<<*it<<endl;
+  // cout<<*arr.rbegin()<<endl;
+
+  // string s = "ABCD";
+  // for(char& c : s) c = tolower(c);
+  // cout<<s;
+  // unordered_set<int> A = {1,2,3};
+  // A.erase(69);
+  // // cout<<string::npos;
+
+  // // list<kekw> m = {1,2,3};
+  // // list<kekw>::iterator it = m.begin();
+  // // cout<<(it->cook);
+
+  // vector<string> meow = {"abc", "abcd", "def"};
+  // cout<<*(lower_bound(meow.begin(), meow.end(), "d"));
+
+  int a[] = {};
+  cout<<(sizeof(a));
 }
