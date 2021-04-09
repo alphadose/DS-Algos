@@ -33,3 +33,32 @@ ListNode* Solution::mergeKLists(vector<ListNode*> &A) {
     }
     return ptr->next;
 }
+
+
+ListNode* Solution::mergeKLists(vector<ListNode*> &A) {
+
+    auto cmp = [](ListNode* A, ListNode* B) -> bool {
+        return A->val > B->val;
+    }
+
+    ListNode* ans = new ListNode(0);
+    ListNode* ptr = ans;
+
+    priority_queue<ListNode*, vector<ListNode*>, decltype(cmp)> pq(cmp);
+
+    for(ListNode* a : A)
+        if(a != NULL)
+            pq.push(a);
+        
+    while(!pq.empty()) {
+        ptr->next = pq.top();
+        ptr = ptr->next;
+        pq.pop();
+        if(ptr->next != NULL)
+            pq.push(ptr->next);
+    }
+
+    ListNode* res = ans->next;
+    free(ans); // most important
+    return res;
+}

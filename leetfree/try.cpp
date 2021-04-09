@@ -17,6 +17,16 @@ int b() {
   return 1;
 }
 
+unsigned int countSetBits(int n) 
+    { 
+        unsigned int count = 0; 
+        while (n) { 
+            n &= (n - 1); 
+            count++; 
+        } 
+        return count; 
+    } 
+  
 template<typename A=int, typename B=string>
 struct xd {
   A meow;
@@ -50,13 +60,39 @@ ostream& operator<<(ostream &out, xd<> &f) {
   return out;
 }
 
-int main() {
+int lol() {
 
+}
+
+enum pos {
+  kek,
+  w,
+  meow
+};
+
+class meow2 {
+  private:
+  int mu();
+  public:
+  meow2(){}
+  int gu();
+};
+
+int meow2::mu() {
+  return 69;
+}
+
+int meow2::gu() {
+  return mu();
+}
+
+int main() {
+  meow2 meks;
+  cout<<meks.gu()<<endl;
     // priority_queue<kekw, vector<kekw>, xd> pq;
     // function<int(double)> it = [](double a) -> int {
     //   return a;
     // };
-    xd<kekw>* n = new xd<kekw>(2, new kekw(69));
     // cout<<n->operator->()->cook;
 
     // auto p = new xd(0);
@@ -153,6 +189,46 @@ int main() {
   // vector<string> meow = {"abc", "abcd", "def"};
   // cout<<*(lower_bound(meow.begin(), meow.end(), "d"));
 
-  int a[] = {};
-  cout<<(sizeof(a));
+  // int a[0];
+  // // a[0] += 1;
+  // cout<<a[0]<<endl;
+  // printf("%d", a[0]);
+
+  // vector<int> A = {1,2,3};
+  // cout<<lower_bound(A.begin(), A.end(), 3) - A.begin();
+
+  // string a = "abc@cdef.com";
+  // cout<<a.substr(a.find("@"))<<endl;
+
+  // map<int, int, greater<int>> kekw = {
+  //   {1,1},
+  //   {2,2},
+  //   {3,3}
+  // };
+
+  // for(auto i : kekw) {
+  //   cout<<i.first<<" "<<i.second<<endl;
+  //   kekw[4]++;
+  // }
+
+  // vector<int> a = {1,2,3,4};
+  // auto it = lower_bound(a.begin(),a.begin()+3,400);
+  // if(it == a.begin()+3) cout<<"yes";
+  // else cout<<"no";
+
+  // int arr[] = {1,2,3,0,1,2};
+  // int n = sizeof(arr)/sizeof(int);
+  // for(int a : arr) {
+  //   arr[a%n] += n;
+  // }
+
+  // for(int i = 0;i<n;i++) {
+  //   if(arr[i] >= 2*n) cout<<i<<endl;
+  // }
+  cout<<thread::hardware_concurrency();
+  int m[] = {1,2,3};
+  cout<<*max_element(m,m+3)<<endl;
+
+  string a = "gbc", b = "def";
+  cout<<lexicographical_compare(a.begin(),a.end(),b.begin(),b.end());
 }

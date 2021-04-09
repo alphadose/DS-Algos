@@ -33,7 +33,6 @@ int main() {
         if(tmp==0) continue;
         water += (tmp - A[i]);
     }
-        
     
     cout<<water;
 }

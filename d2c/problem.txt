@@ -1,0 +1,43 @@
+Problem Statement
+Jaime Lannister on his way to Kings Landing found a lake of the perimeter of L. On the circumference of the lake, there is a castle of the lake's owner. Each point on the circumference of the lake has a coordinate between 0 and L (including 0 but not L), which is the distance from the castle, measured counter-clockwise.
+
+There are N trees around the lake; the coordinate of the i-th tree is Xi. There is no tree at coordinate 0, the location of the castle.
+
+Starting at the castle, Jaime will repeat the following action:
+
+If all trees are burnt, terminate the process.
+Specify a direction: clockwise or counter-clockwise.
+Walk around the lake in the specified direction, until the coordinate of a tree that is not yet burnt is reached for the first time.
+When the coordinate with the tree is reached, burn that tree, stay at the position and go back to the first step.
+Find the longest possible total distance Jaime Lannister walks during the process.
+
+Constraints:
+
+2≤L≤10^9
+1≤N≤2×10^5
+1≤X1<...<XN≤L−1
+All values in input are integers.
+Input Format
+Input is given from Standard Input in the following format:
+
+Input Format
+Input is given from Standard Input in the following format:
+
+L N
+X1
+:
+XN
+
+Output Format
+Print the longest possible total distance Jaime Lannister walks during the process.
+
+
+
+Sample Testcase #0
+Testcase Input
+10 3
+2
+7
+9
+
+ans -> 15
